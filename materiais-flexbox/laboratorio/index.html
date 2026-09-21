@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laboratório Flexbox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <p class="etiqueta">Introdução à Programação Web</p>
+      <h1>Laboratório Flexbox</h1>
+      <p>Altere uma propriedade por vez e observe os dois eixos.</p>
+    </div>
+    <button id="resetar" type="button">Restaurar valores</button>
+  </header>
+
+  <main>
+    <section class="controles" aria-labelledby="titulo-controles">
+      <h2 id="titulo-controles">Propriedades do contêiner</h2>
+
+      <label>flex-direction
+        <select id="direction">
+          <option>row</option>
+          <option>row-reverse</option>
+          <option>column</option>
+          <option>column-reverse</option>
+        </select>
+      </label>
+
+      <label>justify-content
+        <select id="justify">
+          <option>flex-start</option>
+          <option>center</option>
+          <option>flex-end</option>
+          <option>space-between</option>
+          <option>space-around</option>
+          <option>space-evenly</option>
+        </select>
+      </label>
+
+      <label>align-items
+        <select id="align">
+          <option>stretch</option>
+          <option>flex-start</option>
+          <option>center</option>
+          <option>flex-end</option>
+          <option>baseline</option>
+        </select>
+      </label>
+
+      <label>flex-wrap
+        <select id="wrap">
+          <option>nowrap</option>
+          <option>wrap</option>
+          <option>wrap-reverse</option>
+        </select>
+      </label>
+
+      <label>gap: <output id="gapValue">16px</output>
+        <input id="gap" type="range" min="0" max="48" value="16">
+      </label>
+
+      <label>altura: <output id="heightValue">320px</output>
+        <input id="height" type="range" min="180" max="480" step="20" value="320">
+      </label>
+    </section>
+
+    <section class="area-experimento" aria-labelledby="titulo-resultado">
+      <div class="cabecalho-resultado">
+        <div>
+          <p class="etiqueta">Resultado</p>
+          <h2 id="titulo-resultado">Contêiner flexível</h2>
+        </div>
+        <p><span class="legenda principal"></span> eixo principal <span class="legenda transversal"></span> eixo transversal</p>
+      </div>
+
+      <div id="palco" class="palco">
+        <article class="item item-1">1</article>
+        <article class="item item-2">2<br><small>texto</small></article>
+        <article class="item item-3">3</article>
+        <article class="item item-4">4<br><small>mais alto</small></article>
+        <article class="item item-5">5</article>
+        <article class="item item-6">6</article>
+      </div>
+
+      <div class="codigo" aria-live="polite">
+        <div class="codigo-topo"><span>CSS aplicado</span><button id="copiar" type="button">Copiar</button></div>
+        <pre><code id="codigo"></code></pre>
+      </div>
+    </section>
+
+    <section class="perguntas">
+      <h2>Teste com intenção</h2>
+      <ol>
+        <li>Qual eixo muda quando você troca <code>row</code> por <code>column</code>?</li>
+        <li>Por que <code>justify-content</code> às vezes parece não funcionar?</li>
+        <li>Quando <code>wrap</code> cria uma segunda linha?</li>
+        <li>O que muda entre <code>space-between</code> e <code>space-evenly</code>?</li>
+      </ol>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

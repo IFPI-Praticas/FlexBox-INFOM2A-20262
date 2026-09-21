@@ -1,0 +1,132 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --azul: #155eef;
+  --azul-escuro: #0b1f3a;
+  --ciano: #14b8a6;
+  --amarelo: #fbbf24;
+  --fundo: #f4f7fb;
+  --borda: #cbd5e1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--azul-escuro);
+  background: var(--fundo);
+}
+
+button, select, input { font: inherit; }
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 28px max(24px, calc((100vw - 1180px) / 2));
+  color: white;
+  background: var(--azul-escuro);
+}
+
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: 6px; font-size: clamp(2rem, 4vw, 3.2rem); }
+h2 { margin-bottom: 18px; }
+.topo p { margin-bottom: 0; color: #cbd5e1; }
+.etiqueta { margin-bottom: 6px; color: var(--azul); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 750;
+}
+
+#resetar { color: var(--azul-escuro); background: var(--amarelo); }
+
+main {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  width: min(1180px, calc(100% - 48px));
+  margin: 28px auto 60px;
+}
+
+.controles, .area-experimento, .perguntas {
+  border: 1px solid var(--borda);
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .07);
+}
+
+.controles { padding: 22px; }
+.controles label { display: grid; gap: 7px; margin-bottom: 17px; font-weight: 750; }
+select, input { width: 100%; }
+select { border: 1px solid var(--borda); border-radius: 8px; padding: 9px 10px; background: white; }
+
+.area-experimento { min-width: 0; padding: 22px; }
+.cabecalho-resultado { display: flex; justify-content: space-between; align-items: end; gap: 18px; }
+.cabecalho-resultado h2 { margin-bottom: 0; }
+.cabecalho-resultado > p { color: #475569; font-size: .86rem; }
+.legenda { display: inline-block; width: 18px; height: 4px; margin: 0 5px 3px 12px; border-radius: 99px; }
+.legenda.principal { background: var(--azul); }
+.legenda.transversal { background: var(--ciano); }
+
+.palco {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 16px;
+  min-width: 0;
+  height: 320px;
+  overflow: auto;
+  border: 3px dashed #94a3b8;
+  border-radius: 14px;
+  padding: 22px;
+  background:
+    linear-gradient(90deg, rgba(21,94,239,.06) 1px, transparent 1px),
+    linear-gradient(rgba(20,184,166,.06) 1px, transparent 1px),
+    #f8fafc;
+  background-size: 24px 24px;
+}
+
+.item {
+  display: grid;
+  place-items: center;
+  flex: 0 0 112px;
+  min-height: 72px;
+  border: 3px solid #0b1f3a;
+  border-radius: 12px;
+  color: white;
+  background: var(--azul);
+  font-size: 2rem;
+  font-weight: 850;
+  text-align: center;
+}
+
+.item:nth-child(even) { background: var(--ciano); }
+.item-2 { min-height: 105px; }
+.item-4 { min-height: 145px; }
+.item small { font-size: .75rem; font-weight: 650; }
+
+.codigo { margin-top: 18px; overflow: hidden; border-radius: 12px; color: #dbeafe; background: #08182d; }
+.codigo-topo { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; color: #94a3b8; background: #0f2747; font-size: .82rem; }
+#copiar { padding: 5px 9px; color: white; background: #155eef; }
+pre { margin: 0; padding: 16px; overflow-x: auto; font-size: 1rem; line-height: 1.55; }
+
+.perguntas { grid-column: 1 / -1; padding: 24px 30px; border-left: 8px solid var(--amarelo); }
+.perguntas ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 36px; margin-bottom: 0; padding-left: 24px; }
+code { font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Consolas, monospace; }
+
+@media (max-width: 800px) {
+  .topo { align-items: flex-start; }
+  main { grid-template-columns: 1fr; width: min(100% - 28px, 680px); }
+  .cabecalho-resultado { align-items: flex-start; flex-direction: column; }
+  .perguntas { grid-column: auto; }
+  .perguntas ol { grid-template-columns: 1fr; }
+}
+
